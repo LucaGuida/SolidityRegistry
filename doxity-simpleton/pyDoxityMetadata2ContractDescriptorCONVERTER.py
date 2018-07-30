@@ -21,7 +21,17 @@ def convertDoxityMetadata2ContractDescriptor (contractMetadataFile):
 
   contract['version'] = '1.0' # DEFAULT VALUE
   contract['language'] = metadata_field['language']
+
+
   contract['contract_type'] = 'generic_contract'  # DEFAULT VALUE
+
+  fileContract=open('contracts/' + contractMetadataFile.replace('.json','.sol')).read()
+  substring = "library " + contractMetadataFile.replace('.json','') + " {"
+  print(substring)
+  if substring in fileContract:
+    contract['contract_type'] = 'library'
+
+
   contract['abi'] = data['abi']
   contract['devdoc'] = data['devdoc']
   contract['userdoc'] = data['userdoc']
