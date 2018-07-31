@@ -12,50 +12,57 @@ def convertDoxityMetadata2ContractDescriptor (contractMetadataFile):
 
   metadata_field = json.loads(data['metadata'])
 
-  contract = {}
-  contract['name'] = list(metadata_field['settings']['compilationTarget'].values())[0]
+  
+  # DESCRIPTOR
+  descriptor = {}
+  descriptor['name'] = list(metadata_field['settings']['compilationTarget'].values())[0]
 
-  contract['author'] = 'Unknown' # DEFAULT VALUE
+  descriptor['author'] = 'Unknown' # DEFAULT VALUE
   if 'author' in data['devdoc']:
-    contract['author'] = data['devdoc']['author']
+    descriptor['author'] = data['devdoc']['author']
 
-  contract['version'] = '1.0' # DEFAULT VALUE
-  contract['language'] = metadata_field['language']
+  descriptor['language'] = metadata_field['language']
 
-
-  contract['contract_type'] = 'generic_contract'  # DEFAULT VALUE
-
+  descriptor['contract_type'] = 'generic_contract'  # DEFAULT VALUE
   fileContract=open('contracts/' + contractMetadataFile.replace('.json','.sol')).read()
   substring = "library " + contractMetadataFile.replace('.json','') + " {"
-  print(substring)
   if substring in fileContract:
-    contract['contract_type'] = 'library'
+    descriptor['contract_type'] = 'library'
+
+  descriptor['contract_version'] = '1.0' # DEFAULT VALUE
+  descriptor['descriptor_version'] = '1.0'  # DEFAULT VALUE
+
+  descriptor['abi'] = data['abi']
+  descriptor['userdoc'] = data['userdoc']
 
 
-  contract['abi'] = data['abi']
-  contract['devdoc'] = data['devdoc']
-  contract['userdoc'] = data['userdoc']
-  contract['sources'] = metadata_field['sources']
-  contract['libraries'] = metadata_field['settings']['libraries']
+  # ENDPOINT
+  endpoint = {}
+  endpoint['address'] = '0x314159265dd8dbb310642f98f50c066173c1259b'  # DEFAULT VALUE
+  endpoint['networkID'] = 1  # DEFAULT VALUE
+  endpoint['chainID'] = 1  # DEFAULT VALUE
 
-  deployment_information = {}
-  deployment_information['address'] = '0x314159265dd8dbb310642f98f50c066173c1259b'  # DEFAULT VALUE
-  deployment_information['networkID'] = 1  # DEFAULT VALUE
-  deployment_information['chainID'] = 1  # DEFAULT VALUE
+
+  # DEV
+  dev = {}
+  dev['devdoc'] = data['devdoc']
+  dev['sources'] = metadata_field['sources']
+  dev['libraries'] = metadata_field['settings']['libraries']
 
   compiler = {}
   compiler['version'] = metadata_field['compiler']['version']
   compiler['evmVersion'] = metadata_field['settings']['evmVersion']
 
-  descriptor = {}
-  descriptor['version'] = '1.0'  # DEFAULT VALUE
+  dev['compiler'] = compiler
 
 
+  # CONTRACT
   contractDescriptor = {}
-  contractDescriptor['contract'] = contract
-  contractDescriptor['deployment_information'] = deployment_information
-  contractDescriptor['compiler'] = compiler
-  contractDescriptor['descriptor'] = descriptor
+  contractDescriptor['contract'] = {}
+  contractDescriptor['contract']['descriptor'] = descriptor
+  contractDescriptor['contract']['endpoint'] = endpoint
+  contractDescriptor['contract']['dev'] = dev
+
 
   return contractDescriptor
 
