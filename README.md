@@ -6,7 +6,8 @@
 
 ### Registry (documentation generator)
 
-```cd /Users/Guida/GitHub/
+```
+cd /Users/Guida/GitHub/
 git clone https://www.github.com/ryanhendricks/doxity-simpleton.git
 ```
 
@@ -16,11 +17,13 @@ Edit the following files to match your Github Repo to use Github Pages
 - /doxity/config.toml: "linkPrefix = "/doxity-simpleton"" must match your Github Repo
 
 
-```cd /Users/Guida/GitHub/doxity-simpleton/doxity
+```
+cd /Users/Guida/GitHub/doxity-simpleton/doxity
 yarn
 ```
 
-```cd /Users/Guida/GitHub/doxity-simpleton
+```
+cd /Users/Guida/GitHub/doxity-simpleton
 yarn
 ```
 
@@ -30,7 +33,8 @@ NB: Repeat the two "yarn" commands if you change the directory location!!!
 
 ### REST API
 
-```npm install -g json-server
+```
+npm install -g json-server
 ```
 Creare the db.json and put it in cd /Users/Guida/GitHub/SolidityExplorer/REST_API
 
@@ -68,7 +72,8 @@ json-server --watch metadataDB.json
 ```
 
 Examples of GET queries (may be tested with POSTMAN):
-```http://localhost:3000/contracts?contract_type=generic_contract
+```
+http://localhost:3000/contracts?contract_type=generic_contract
 http://localhost:3000/contracts?name=Set
 ```
 
