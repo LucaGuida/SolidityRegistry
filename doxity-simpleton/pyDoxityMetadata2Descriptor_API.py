@@ -66,42 +66,30 @@ def convertDoxityMetadata2ContractDescriptor (contractMetadataFile):
   return contractDescriptor
 
 
-
-def cat_json(output_filename, input_filenames):
-    with open(output_filename, "w") as outfile:
-        first = True
-        for infile_name in input_filenames:
-            with open(infile_name) as infile:
-                if first:
-                    outfile.write('{ "obj": [')
-                    first = False
-                else:
-                    outfile.write(',')
-                outfile.write(infile.read())
-        outfile.write(']}')
-
-
+JSONfileForAPI = {}
+JSONfileForAPIarray = []
 
 for contractMetadataFile in os.listdir('doxity-metadata-files'): # filenames with extension
   if contractMetadataFile!=".DS_Store":
+    contractDescriptorJSON = convertDoxityMetadata2ContractDescriptor(contractMetadataFile)
     with open('contract-descriptor-files/' + contractMetadataFile, 'w') as outfile:
-      json.dump(convertDoxityMetadata2ContractDescriptor(contractMetadataFile), outfile)
+      json.dump(contractDescriptorJSON, outfile)
+    contractDescriptorJSONforAPI = {}
+    contractDescriptorJSONforAPI['name'] = contractDescriptorJSON['contract']['descriptor']['name']
+    contractDescriptorJSONforAPI['contract_type'] = contractDescriptorJSON['contract']['descriptor']['contract_type']
+    contractDescriptorJSONforAPI['JSON'] = contractDescriptorJSON
+    JSONfileForAPIarray.append(contractDescriptorJSONforAPI)
+
+JSONfileForAPI['contracts'] = JSONfileForAPIarray;
+
+cwd = os.path.dirname(os.path.realpath(__file__))
+parentCwd = os.path.abspath(os.path.join(cwd, os.pardir))
+with open(parentCwd + '/REST_API/metadataDB.json', 'w') as outfile:
+  json.dump(JSONfileForAPI, outfile)
+
 
 
 print ("\nAll the metadata files in the doxity_metadata_files folder were converter to contract descriptors and were stored in the contract-descriptor-files folder!\n")
-
-
-
-
-# MARGE ALL DESCRIPTOR FILES IN ONE SINGLE JSON, THAT WILL BE USED AS A DATABASE FOR THE REST_API SERVER
-cwd = os.path.dirname(os.path.realpath(__file__))
-parentCwd = os.path.abspath(os.path.join(cwd, os.pardir))
-JSONlist = []
-
-for contractDescriptorFile in os.listdir('contract-descriptor-files'): # filenames with extension
-  JSONlist.append('contract-descriptor-files/' + contractDescriptorFile);
-
-cat_json(parentCwd + "/REST_API/metadataDB.json", JSONlist)
 
 print ("All the contract descriptors were merged and stored in the REST_API folder!\n\n")
 
