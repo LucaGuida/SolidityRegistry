@@ -63,8 +63,22 @@ def convertDoxityMetadata2ContractDescriptor (contractMetadataFile):
   contractDescriptor['contract']['endpoint'] = endpoint
   contractDescriptor['contract']['dev'] = dev
 
-
   return contractDescriptor
+
+
+
+def cat_json(output_filename, input_filenames):
+    with open(output_filename, "w") as outfile:
+        first = True
+        for infile_name in input_filenames:
+            with open(infile_name) as infile:
+                if first:
+                    outfile.write('{ "obj": [')
+                    first = False
+                else:
+                    outfile.write(',')
+                outfile.write(infile.read())
+        outfile.write(']}')
 
 
 
@@ -75,5 +89,19 @@ for contractMetadataFile in os.listdir('doxity-metadata-files'): # filenames wit
 
 
 print ("\nAll the metadata files in the doxity_metadata_files folder were converter to contract descriptors and were stored in the contract-descriptor-files folder!\n")
-print("\n")
+
+
+
+
+# MARGE ALL DESCRIPTOR FILES IN ONE SINGLE JSON, THAT WILL BE USED AS A DATABASE FOR THE REST_API SERVER
+cwd = os.path.dirname(os.path.realpath(__file__))
+parentCwd = os.path.abspath(os.path.join(cwd, os.pardir))
+JSONlist = []
+
+for contractDescriptorFile in os.listdir('contract-descriptor-files'): # filenames with extension
+  JSONlist.append('contract-descriptor-files/' + contractDescriptorFile);
+
+cat_json(parentCwd + "/REST_API/metadataDB.json", JSONlist)
+
+print ("All the contract descriptors were merged and stored in the REST_API folder!\n\n")
 
