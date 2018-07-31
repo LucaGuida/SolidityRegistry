@@ -1,1 +1,1 @@
-{"MetaCoin": "address1", "Ballot": "address2", "ConvertLib": "address3"}
+{"MetaCoin": {"address": "0x314159265dd8dbb310642f98f50c066173c1259b", "networkID": 1, "chainID": 1}, "Ballot": {"address": "0x314159265dd8dbb310642f98f50c066173c1259b", "networkID": 1, "chainID": 1}, "ConvertLib": {"address": "0x314159265dd8dbb310642f98f50c066173c1259b", "networkID": 1, "chainID": 1}}
