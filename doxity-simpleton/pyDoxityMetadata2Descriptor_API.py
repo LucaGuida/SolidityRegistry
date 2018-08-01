@@ -10,6 +10,10 @@ def convertDoxityMetadata2ContractDescriptor (contractMetadataFile):
   file=open('doxity-metadata-files/' + contractMetadataFile).read()
   data = json.loads(file)
 
+
+  fileAddressMap=open('contractAddressesList.json').read()
+  dataAddressMap = json.loads(fileAddressMap)
+
   metadata_field = json.loads(data['metadata'])
 
   
@@ -17,7 +21,7 @@ def convertDoxityMetadata2ContractDescriptor (contractMetadataFile):
   descriptor = {}
   descriptor['name'] = list(metadata_field['settings']['compilationTarget'].values())[0]
 
-  descriptor['author'] = 'Unknown' # DEFAULT VALUE
+  descriptor['author'] = '' # DEFAULT VALUE
   if 'author' in data['devdoc']:
     descriptor['author'] = data['devdoc']['author']
 
@@ -38,15 +42,18 @@ def convertDoxityMetadata2ContractDescriptor (contractMetadataFile):
 
   # ENDPOINT
   endpoint = {}
-  endpoint['address'] = '0x314159265dd8dbb310642f98f50c066173c1259b'  # DEFAULT VALUE
-  endpoint['networkID'] = 1  # DEFAULT VALUE
-  endpoint['chainID'] = 1  # DEFAULT VALUE
+  if descriptor['name'] in dataAddressMap:
+  	endpoint['address'] = dataAddressMap[descriptor['name']]['address']
+  	endpoint['networkID'] = dataAddressMap[descriptor['name']]['networkID']
+  	endpoint['chainID'] =dataAddressMap[descriptor['name']]['chainID']
 
 
   # DEV
   dev = {}
   dev['devdoc'] = data['devdoc']
-  dev['sources'] = metadata_field['sources']
+  dev['sources'] = {}
+  dev['sources']['keccak256'] = list(metadata_field['sources'].values())[0]['keccak256']
+  dev['sources']['swarm_URL'] = list(metadata_field['sources'].values())[0]['urls'][0]
   dev['libraries'] = metadata_field['settings']['libraries']
 
   compiler = {}
