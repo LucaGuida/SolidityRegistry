@@ -1,7 +1,7 @@
 {
-  "name": "SolidityExplorer",
+  "name": "SoliditySmartContractRegistry",
   "version": "1.0.0",
-  "description": "Library contracts Explorer",
+  "description": "Solidity smart contract registry",
   "author": "Luca Guida",
   "main": "docs/index.html",
   "directories": {
@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LucaGuida/SolidityExplorer.git"
+    "url": "git+https://github.com/LucaGuida/SoliditySmartContractRegistry.git"
   },
-  "homepage": "https://lucaguida.github.io/SolidityExplorer/", 
+  "homepage": "https://lucaguida.github.io/SoliditySmartContractRegistry/", 
   "scripts": {
     "docs": "doxity build"
   },

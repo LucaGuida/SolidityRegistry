@@ -1,13 +1,13 @@
-linkPrefix = "/SolidityExplorer"
-name = "SolidityExplorer"
+linkPrefix = "/SoliditySmartContractRegistry"
+name = "SoliditySmartContractRegistry"
 version = "1.0.0"
-description = "Library contracts Explorer"
-buildTime = 2018-07-31T08:41:52.395Z
+description = "Solidity smart contract registry"
+buildTime = 2018-08-01T17:01:41.499Z
 target = "doxity"
 src = "contracts/*"
 dir = "pages/docs"
 out = "docs"
 author = "Luca Guida"
-homepage = "https://lucaguida.github.io/SolidityExplorer/"
+homepage = "https://lucaguida.github.io/SoliditySmartContractRegistry/"
 
 [interaction]
