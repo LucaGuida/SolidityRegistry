@@ -1,1 +1,1 @@
-# SolidityExplorer
+# SoliditySmartContractRegistry
