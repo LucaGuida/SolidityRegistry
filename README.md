@@ -49,22 +49,12 @@ Copy solidity contracts to the contracts folder, then build the docs:
 
 ```
 cd /Users/Guida/GitHub/SoliditySmartContractRegistry/doxity-simpleton
-
-python pyCleanContractDescriptorsDir.py
-npm run docs
-python pyDocsUpdater.py
-python pyDoxityMetadata2Descriptor_API.py
+python DocumentationGenerator.py
+python SmartContractDescriptorGenerator.py
 ```
 
 
-### To visualize the docs:
-
-```
-cd /Users/Guida/GitHub/SoliditySmartContractRegistry/docs/docs/
-python -m http.server
-```
-
-To start the REST API
+### To start the REST API
 
 ```
 cd /Users/Guida/GitHub/SoliditySmartContractRegistry/REST_API
@@ -77,7 +67,7 @@ http://localhost:3000/contracts?contract_type=generic_contract
 http://localhost:3000/contracts?name=Set
 ```
 
-### To fully access the docs, publish them on GitHub pages:
+### To deploy the docs on GitHub pages:
 
 1) commit the /docs folder to a GitHub repository
 2) Visit the repository’s settings tab and select master branch /docs folder as the GitHub Pages source. 
