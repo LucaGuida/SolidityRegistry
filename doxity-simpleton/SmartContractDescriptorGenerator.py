@@ -92,7 +92,7 @@ JSONfileForAPI['contracts'] = JSONfileForAPIarray;
 
 cwd = os.path.dirname(os.path.realpath(__file__))
 parentCwd = os.path.abspath(os.path.join(cwd, os.pardir))
-with open(parentCwd + '/REST_API/metadataDB.json', 'w') as outfile:
+with open(parentCwd + '/REST_API/smartContractDescriptorsAPI-DB.json', 'w') as outfile:
   json.dump(JSONfileForAPI, outfile)
 
 

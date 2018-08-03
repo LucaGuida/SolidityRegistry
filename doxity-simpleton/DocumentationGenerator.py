@@ -1,5 +1,5 @@
-import shutil
 import os.path
+import shutil
 from distutils.dir_util import copy_tree
 from subprocess import call
 

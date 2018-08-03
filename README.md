@@ -58,7 +58,7 @@ python SmartContractDescriptorGenerator.py
 
 ```
 cd /Users/Guida/GitHub/SoliditySmartContractRegistry/REST_API
-json-server --watch metadataDB.json
+json-server --watch smartContractDescriptorsAPI-DB.json
 ```
 
 Examples of GET queries (may be tested with POSTMAN):
