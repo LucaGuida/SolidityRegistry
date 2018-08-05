@@ -7,7 +7,7 @@
 ### Registry (documentation generator)
 
 ```
-cd /Users/Guida/GitHub/SoliditySmartContractRegistry
+cd ~/GitHub/SoliditySmartContractRegistry
 git clone https://www.github.com/ryanhendricks/doxity-simpleton.git
 ```
 
@@ -18,12 +18,12 @@ Edit the following files to match your Github Repo to use Github Pages
 
 
 ```
-cd /Users/Guida/GitHub/SoliditySmartContractRegistry/doxity-simpleton/doxity
+cd ~/GitHub/SoliditySmartContractRegistry/doxity-simpleton/doxity
 yarn
 ```
 
 ```
-cd /Users/Guida/GitHub/SoliditySmartContractRegistry/doxity-simpleton
+cd ~/GitHub/SoliditySmartContractRegistry/doxity-simpleton
 yarn
 ```
 
@@ -36,7 +36,7 @@ NB: Repeat the two "yarn" commands if you change the directory location!!!
 ```
 npm install -g json-server
 ```
-Creare the db.json and put it in cd /Users/Guida/GitHub/SoliditySmartContractRegistry/REST_API
+Creare the db.json and put it in GitHub/SoliditySmartContractRegistry/REST_API
 
 (https://medium.com/codingthesmartway-com-blog/create-a-rest-api-with-json-server-36da8680136d)
 
@@ -48,7 +48,7 @@ Creare the db.json and put it in cd /Users/Guida/GitHub/SoliditySmartContractReg
 Copy solidity contracts to the contracts folder, then build the docs:
 
 ```
-cd /Users/Guida/GitHub/SoliditySmartContractRegistry/doxity-simpleton
+cd ~/GitHub/SoliditySmartContractRegistry/doxity-simpleton
 python DocumentationGenerator.py
 python SmartContractDescriptorGenerator.py
 ```
@@ -57,7 +57,7 @@ python SmartContractDescriptorGenerator.py
 ### To start the REST API
 
 ```
-cd /Users/Guida/GitHub/SoliditySmartContractRegistry/REST_API
+cd ~/GitHub/SoliditySmartContractRegistry/REST_API
 json-server --watch smartContractDescriptorsAPI-DB.json
 ```
 
