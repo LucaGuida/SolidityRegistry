@@ -82,10 +82,13 @@ for contractMetadataFile in os.listdir('doxity-metadata-files'): # filenames wit
       json.dump(contractDescriptorJSON, outfile)
 
 # Generation of the DB file for the API server      
+    sourceCode = open('contracts/' + contractMetadataFile.replace('.json','.sol')).read()
+
     contractDescriptorJSONforAPI = {}
     contractDescriptorJSONforAPI['name'] = contractDescriptorJSON['contract']['descriptor']['name']
     contractDescriptorJSONforAPI['contract_type'] = contractDescriptorJSON['contract']['descriptor']['contract_type']
     contractDescriptorJSONforAPI['JSON'] = contractDescriptorJSON
+    contractDescriptorJSONforAPI['code'] = sourceCode
     JSONfileForAPIarray.append(contractDescriptorJSONforAPI)
 
 JSONfileForAPI['contracts'] = JSONfileForAPIarray;
