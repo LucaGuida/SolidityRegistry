@@ -16,8 +16,6 @@ library SafeMath {
     * @dev Multiplies two numbers, throws on overflow.
     */
     function mul(uint256 a, uint256 b)
-        internal
-        pure
         returns (uint256 c)
     {
         if (a == 0) {
@@ -31,7 +29,7 @@ library SafeMath {
     /**
     * @dev Integer division of two numbers, truncating the quotient.
     */
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+    function div(uint256 a, uint256 b) returns (uint256) {
         // assert(b > 0); // Solidity automatically throws when dividing by 0
         uint256 c = a / b;
         // assert(a == b * c + a % b); // There is no case in which this doesn't hold
@@ -42,8 +40,6 @@ library SafeMath {
     * @dev Subtracts two numbers, throws on overflow (i.e. if subtrahend is greater than minuend).
     */
     function sub(uint256 a, uint256 b)
-        internal
-        pure
         returns (uint256)
     {
         require(b <= a, "SafeMath sub failed");
@@ -54,8 +50,6 @@ library SafeMath {
     * @dev Adds two numbers, throws on overflow.
     */
     function add(uint256 a, uint256 b)
-        internal
-        pure
         returns (uint256 c)
     {
         c = a + b;
@@ -67,8 +61,6 @@ library SafeMath {
      * @dev gives square root of given x.
      */
     function sqrt(uint256 x)
-        internal
-        pure
         returns (uint256 y)
     {
         uint256 z = ((add(x,1)) / 2);
@@ -84,8 +76,6 @@ library SafeMath {
      * @dev gives square. multiplies x by x
      */
     function sq(uint256 x)
-        internal
-        pure
         returns (uint256)
     {
         return (mul(x,x));
@@ -95,8 +85,6 @@ library SafeMath {
      * @dev x to the power of y
      */
     function pwr(uint256 x, uint256 y)
-        internal
-        pure
         returns (uint256)
     {
         if (x==0)
