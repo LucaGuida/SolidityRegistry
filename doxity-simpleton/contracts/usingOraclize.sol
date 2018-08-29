@@ -117,11 +117,7 @@ contract usingOraclize {
 
     // parseInt
     function parseInt(string _a) constant returns (uint) {
-        return parseInt(_a, 0);
-    }
-
-    // parseInt(parseFloat*10^_b)
-    function parseInt(string _a, uint _b) constant returns (uint) {
+        uint _b = 0;
         bytes memory bresult = bytes(_a);
         uint mint = 0;
         bool decimals = false;

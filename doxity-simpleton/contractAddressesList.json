@@ -1,1 +1,7 @@
-{"MetaCoin": {"address": "0x0000000000000000000000000000000000000000", "networkID": 1, "chainID": 1}, "Ballot": {"address": "0x0000000000000000000000000000000000000000", "networkID": 1, "chainID": 1}, "SafeMath": {"address": "0x0000000000000000000000000000000000000000", "networkID": 1, "chainID": 1}}
+{
+  "SafeMath": {
+    "address": "0x6d83485ae971ab2151f898db2bd862ec69020a28",
+    "networkID": 1,
+    "chainID": 1
+  }
+}
