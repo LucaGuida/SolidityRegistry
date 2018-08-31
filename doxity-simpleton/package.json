@@ -1,5 +1,5 @@
 {
-  "name": "SoliditySmartContractRegistry",
+  "name": "SolidityRegistry",
   "version": "1.0.0",
   "description": "Solidity smart contract registry",
   "author": "Luca Guida",
@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LucaGuida/SoliditySmartContractRegistry.git"
+    "url": "git+https://github.com/LucaGuida/SolidityRegistry.git"
   },
-  "homepage": "https://lucaguida.github.io/SoliditySmartContractRegistry/", 
+  "homepage": "https://lucaguida.github.io/SolidityRegistry/", 
   "scripts": {
     "docs": "doxity build"
   },
