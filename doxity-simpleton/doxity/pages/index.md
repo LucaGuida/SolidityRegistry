@@ -1,1 +1,1 @@
-# SoliditySmartContractRegistry
+# SolidityRegistry
