@@ -4,7 +4,7 @@
 ## Installation instructions
 
 
-### Registry (documentation generator)
+### Documentation and website generator
 
 ```
 cd ~/GitHub/SolidityRegistry
@@ -38,16 +38,13 @@ Now rename the doxity-simpleton folder into documentationGenerator.
 ```
 npm install -g json-server
 ```
-Creare the db.json and put it in GitHub/SolidityRegistry/REST_API
-
-(https://medium.com/codingthesmartway-com-blog/create-a-rest-api-with-json-server-36da8680136d)
 
 
 
 ## Usage instructions
 
 
-Copy solidity contracts to the contracts folder, then build the docs:
+Copy Solidity contracts to the /contracts folder, then build the docs:
 
 ```
 cd ~/GitHub/SolidityRegistry/documentationGenerator
