@@ -1,0 +1,13 @@
+linkPrefix = "/SolidityRegistry"
+name = "SolidityRegistry"
+version = "1.0.0"
+description = "Solidity smart contract registry"
+buildTime = 2018-09-05T07:38:01.647Z
+target = "doxity"
+src = "contracts/*"
+dir = "pages/docs"
+out = "docs"
+author = "Luca Guida"
+homepage = "https://lucaguida.github.io/SolidityRegistry/"
+
+[interaction]

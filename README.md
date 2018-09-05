@@ -30,6 +30,8 @@ yarn
 NB: Repeat the two "yarn" commands if you change the directory location!!!
 
 
+Now rename the doxity-simpleton folder into documentationGenerator.
+
 
 ### REST API
 
@@ -48,7 +50,7 @@ Creare the db.json and put it in GitHub/SolidityRegistry/REST_API
 Copy solidity contracts to the contracts folder, then build the docs:
 
 ```
-cd ~/GitHub/SolidityRegistry/doxity-simpleton
+cd ~/GitHub/SolidityRegistry/documentationGenerator
 python DocumentationGenerator.py
 python SmartContractDescriptorGenerator.py
 ```
@@ -75,4 +77,6 @@ http://localhost:3000/contracts?name=Set
 
 
 
+This project was implemented starting from some pre-existing modules:
+* Doxity (http://github.com/DigixGlobal/doxity - BSD-3-Clause license) and its variant Doxity Simpleton (http://github.com/RyanHendricks/doxity-simpleton)
 
